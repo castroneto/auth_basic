@@ -8,20 +8,24 @@
         {{/if}}
 
         <div class="card" >
-            <img src="/images/logo.png" class="card-img-top" alt="...">
             <div class="card-body">
-                <form method="POST" action="/login">
+                <h5 class="card-title">Login</h5>
+                <form method="POST" action="/api/v1/auth">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
+                        <label for="exampleInputEmail1">Email</label>
                         <input name="email" type="email" class="form-control" id="exampleInputEmail1"
-                            placeholder="Enter email">
+                            placeholder="Insira seu email">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
                         <input name="password" type="password" class="form-control" id="exampleInputPassword1"
-                            placeholder="Password">
+                            placeholder="Insira sua senha">
                     </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
+                        <a href="/register" class="card-link">Ainda não tem uma conta? cadastre-se</a>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -30,4 +34,3 @@
     </div>
 </div>
 
-<link rel="stylesheet" href="/styles/login.css">

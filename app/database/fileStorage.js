@@ -1,4 +1,5 @@
-const { readFile, writeFile } = require('fs/promises')
+//const { readFile, writeFile } = require('fs/promises')
+const fs = require("fs").promises;
 
 class FileStorage {
     constructor({ file }) {
@@ -6,7 +7,7 @@ class FileStorage {
     }
 
     async _getFileContent() {
-        return JSON.parse(await readFile(this.filePath))
+        return JSON.parse(await fs.readFile(this.filePath))
     }
     
     async find({...data}) {
@@ -32,20 +33,10 @@ class FileStorage {
         const fileContent = await this._getFileContent()
         fileContent.push({...data, id: fileContent.length + 1})
 
-        await writeFile(this.filePath, JSON.stringify(fileContent))
+        await fs.writeFile(this.filePath, JSON.stringify(fileContent))
         return data.id
     }
 
 }
 
 module.exports = FileStorage
-
-/*
-;
-(async () => {
-    var teste = new UserRepository({file: "../database/users.json"});
-    await teste.create({nome: "raimundo"})
-
-})()
-
-*/
